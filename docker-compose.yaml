@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+  web:
+    build: .
+    command: bash -c " cd /code/src && python manage.py makemigrations --noinput &&
+      python manage.py migrate --noinput && gunicorn core.wsgi:application -b
+      0.0.0.0:8000 --reload"
+    volumes:
+      - .:/code
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

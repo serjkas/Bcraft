@@ -1,0 +1,32 @@
+[
+    {
+        "model": "statistics_counter.ActivityCollection",
+        "pk": 1,
+        "fields": {
+            "date_at": "2021-11-28",
+            "views": 3,
+            "clicks": 2,
+            "cost": 9
+        }
+    },
+    {
+        "model": "statistics_counter.ActivityCollection",
+        "pk": 2,
+        "fields": {
+            "date_at": "2021-11-29",
+            "views": 15,
+            "clicks": 4,
+            "cost": 4
+        }
+    },
+    {
+        "model": "statistics_counter.ActivityCollection",
+        "pk": 3,
+        "fields": {
+            "date_at": "2021-11-26",
+            "views": 100,
+            "clicks": 2,
+            "cost": 4
+        }
+    }
+]
